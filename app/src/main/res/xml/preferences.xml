@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <MultiSelectListPreference
+        android:dialogTitle="@string/setting_domestic"
+        android:key="domestic_policies"
+        android:summary=""
+        android:title="@string/setting_domestic"
+        android:entries="@array/all_domestic_policies_readable"
+        android:entryValues="@array/all_domestic_policies"
+        android:defaultValue="@array/default_domestic_policies"
+        />
+
+    <MultiSelectListPreference
+        android:dialogTitle="@string/setting_military"
+        android:key="military_policies"
+        android:summary=""
+        android:title="@string/setting_military"
+        android:entries="@array/all_military_policies_readable"
+        android:entryValues="@array/all_military_policies"
+        android:defaultValue="@array/default_military_policies"
+        />
+
+</PreferenceScreen>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Items to grab from the nation page-->
+    <string-array name="econ_labels">
+        <item>Available Budget:</item>
+        <item>Gross Domestic Product:</item>
+        <item>Growth:</item>
+        <item>Discovered Oil Reserves:</item>
+    </string-array>
+    <string-array name="mil_labels">
+        <item>Army Size:</item>
+        <item>Manpower:</item>
+        <item>Equipment:</item>
+        <item>Training:</item>
+        <item>Navy:</item>
+    </string-array>
+
+    <!-- Preferences stuff -->
+        <!-- DOMESTIC -->
+            <!-- Short names (shown to user) -->
+            <string-array name="all_domestic_policies_readable">
+                <item>Arrest opposition</item>
+                <item>Release opposition</item>
+                <item>Declare martial law</item>
+                <item>Elections</item>
+                <item>Free housing</item>
+                <item>Raise minimum wage</item>
+                <item>Free food</item>
+                <item>Build school</item>
+                <item>Build hospital</item>
+                <item>Convert to dictatorship</item>
+            </string-array>
+            <!-- Long names (as seen on the BLOC page) -->
+            <string-array name="all_domestic_policies">
+                <item>Arrest opposition figures and would-be revolutionaries</item>
+                <item>Release political prisoners</item>
+                <item>Declare martial law</item>
+                <item>Hold free and fair elections</item>
+                <item>Free Housing For the People</item>
+                <item>Raise Minimum Wage</item>
+                <item>Free Food For All!</item>
+                <item>Construct Public School</item>
+                <item>Construct Free Hospital</item>
+                <item>Cult of Personality</item>
+            </string-array>
+            <string-array name="default_domestic_policies">
+                <item>Free Housing For the People</item>
+                <item>Raise Minimum Wage</item>
+                <item>Construct Public School</item>
+                <item>Construct Free Hospital</item>
+            </string-array>
+            <!--policy IDs in this array MUST be in the same order as the all_domestic_policies array-->
+            <integer-array name="domestic_policy_id">
+                <item>@id/domestic_arrest</item>
+                <item>@id/domestic_release</item>
+                <item>@id/domestic_martial</item>
+                <item>@id/domestic_elections</item>
+                <item>@id/domestic_housing</item>
+                <item>@id/domestic_wages</item>
+                <item>@id/domestic_food</item>
+                <item>@id/domestic_school</item>
+                <item>@id/domestic_hospital</item>
+                <item>@id/domestic_dictatorship</item>
+            </integer-array>
+            <!-- relevant URLs. Must also be in the correct order.-->
+            <string-array name="domestic_policy_url">
+                <item>http://blocgame.com/policies/arrest.php</item>
+                <item>http://blocgame.com/policies/release.php</item>
+                <item>http://blocgame.com/policies/martial.php</item>
+                <item>http://blocgame.com/policies/elections.php</item>
+                <item>http://blocgame.com/policies/housing.php</item>
+                <item>http://blocgame.com/policies/wage.php</item>
+                <item>http://blocgame.com/policies/freefood.php</item>
+                <item>http://blocgame.com/policies/school.php</item>
+                <item>http://blocgame.com/policies/hospital.php</item>
+                <item>http://blocgame.com/policies/cult.php</item>
+            </string-array>
+            <item  type="id" name="domestic_arrest"/>
+            <item type="id" name="domestic_release" />
+            <item type="id" name="domestic_martial" />
+            <item type="id" name="domestic_elections" />
+            <item type="id" name="domestic_housing" />
+            <item type="id" name="domestic_wages" />
+            <item type="id" name="domestic_food" />
+            <item type="id" name="domestic_school" />
+            <item type="id" name="domestic_hospital" />
+            <item type="id" name="domestic_dictatorship" />
+        <!-- END DOMESTIC -->
+        <!-- MILITARY -->
+            <!-- Short names (shown to user) -->
+            <string-array name="all_military_policies_readable">
+                <item>Conscription</item>
+                <item>Training</item>
+                <item>Demobilize</item>
+                <item>Attack rebels</item>
+                <item>Gas rebels</item>
+                <item>Buy T-62s</item>
+                <item>Buy M60s</item>
+                <item>Manufacture Tanks</item>
+                <item>Buy MiGs</item>
+                <item>Buy F-8s</item>
+                <item>Manufacture Aircraft</item>
+                <item>Manufacture Ship</item>
+                <item>Develop Chemical Weapons</item>
+            </string-array>
+            <!-- Long names (as seen on the BLOC page) -->
+            <string-array name="all_military_policies">
+                <item>Conscription</item>
+                <item>Train your Conscripts</item>
+                <item>Demobilize</item>
+                <item>Attack the rebel scum!</item>
+                <item>Gas the rebel scum!</item>
+                <item>Buy T-62s from the Soviets</item>
+                <item>Buy M60 Pattons from the United States</item>
+                <item>Manufacture Istan Main Battle Tanks</item>
+                <item>Buy MiGs</item>
+                <item>Buy F-8 Crusaders</item>
+                <item>Manufacture Aircraft</item>
+                <item>Manufacture Ship</item>
+                <item>Develop Chemical Weapons</item>
+            </string-array>
+            <string-array name="default_military_policies">
+                <item>Conscription</item>
+                <item>Train Your Conscripts</item>
+                <item>Demobilize</item>
+                <item>Buy M60 Pattons from the United States</item>
+                <item>Manufacture Ship</item>
+            </string-array>
+            <!--policy IDs in this array MUST be in the same order as the all_*_policies array-->
+            <integer-array name="military_policy_id">
+                <item>@id/military_conscript</item>
+                <item>@id/military_train</item>
+                <item>@id/military_demobilize</item>
+                <item>@id/military_attackrebs</item>
+                <item>@id/military_gasrebs</item>
+                <item>@id/military_t62s</item>
+                <item>@id/military_m60s</item>
+                <item>@id/military_maketank</item>
+                <item>@id/military_migs</item>
+                <item>@id/military_f8s</item>
+                <item>@id/military_makeplane</item>
+                <item>@id/military_makeship</item>
+                <item>@id/military_makegas</item>
+            </integer-array>
+            <!-- relevant URLs. Must also be in the correct order.-->
+            <string-array name="military_policy_url">
+                <item>http://blocgame.com/policies/conscript.php</item>
+                <item>http://blocgame.com/policies/train.php</item>
+                <item>http://blocgame.com/policies/demobilize.php</item>
+                <item>http://blocgame.com/policies/attackrebels.php</item>
+                <item>http://blocgame.com/policies/gasrebels.php</item>
+                <item>http://blocgame.com/policies/t62.php</item>
+                <item>http://blocgame.com/policies/m60.php</item>
+                <item>http://blocgame.com/policies/istan.php</item>
+                <item>http://blocgame.com/policies/migs.php</item>
+                <item>http://blocgame.com/policies/f8.php</item>
+                <item>http://blocgame.com/policies/manufactureaircraft.php</item>
+                <item>http://blocgame.com/policies/manufacturenavy.php</item>
+                <item>http://blocgame.com/policies/chem.php</item>
+            </string-array>
+            <item  type="id" name="military_conscript" />
+            <item  type="id" name="military_train" />
+            <item  type="id" name="military_demobilize" />
+            <item  type="id" name="military_attackrebs" />
+            <item  type="id" name="military_gasrebs" />
+            <item  type="id" name="military_t62s" />
+            <item  type="id" name="military_m60s" />
+            <item  type="id" name="military_maketank" />
+            <item  type="id" name="military_migs" />
+            <item  type="id" name="military_f8s" />
+            <item  type="id" name="military_makeplane" />
+            <item  type="id" name="military_makeship" />
+            <item  type="id" name="military_makegas" />
+        <!-- END MILITARY -->
+</resources>

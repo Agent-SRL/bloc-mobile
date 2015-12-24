@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Bloc</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Preferences stuff -->
+    <string name="action_settings">Settings</string>
+    <string name="setting_domestic">Enable/disable domestic policies</string>
+    <string name="setting_military">Enable/disable military policies</string>
+
+    <string name="login_button">LOGIN</string>
+
+    <!-- BLOC relevant URLs -->
+    <string name="url_login">http://blocgame.com/login.php</string>
+    <string name="url_nation">http://blocgame.com/main.php</string>
+    <string name="url_domestic">http://blocgame.com/domestic.php</string>
+    <string name="url_military">http://blocgame.com/military.php</string>
+    <!-- BLOC login form field setup-->
+    <string name="login_userfield">username</string>
+    <string name="login_passfield">password</string>
+    <string name="login_buttonname">login</string>
+    <!-- BLOC nation page HTML parsing -->
+    <string name="policy_table_breadcrumb">table.table.table-hover > tbody</string>
+    <string name="econ_breadcrumb">div#collapseTwo.accordion-body.collapse.in > div.accordion-inner</string>
+    <string name="mil_breadcrumb">div#collapseFour.accordion-body.collapse.in > div.accordion-inner</string>
+
+</resources>
