@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:stretchColumns="*"
+    android:shrinkColumns="*">
+
+    <TableRow>
+        <ToggleButton android:id="@+id/market_oil" android:textOn="Oil" android:textOff="Oil" android:disabledAlpha="1.5"/>
+        <ToggleButton android:id="@+id/market_rm" android:textOn="RM" android:textOff="RM" android:disabledAlpha="1.5"/>
+        <ToggleButton android:id="@+id/market_food" android:textOn="Food" android:textOff="Food" android:disabledAlpha="1.5"/>
+        <ToggleButton android:id="@+id/market_mg" android:textOn="MG" android:textOff="MG" android:disabledAlpha="1.5"/>
+    </TableRow>
+    <TableRow>
+        <Button android:id="@+id/buy_1" android:text="Buy 1"/>
+        <Button android:id="@+id/sell_1" android:text="Sell 1"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:text="Custom amount" />
+        <Button android:id="@+id/buy_5" android:text="Buy 5"/>
+        <Button android:id="@+id/sell_5" android:text="Sell 5"/>
+    </TableRow>
+    <TableRow>
+        <EditText android:id="@+id/custom_amount" android:inputType="number" android:singleLine="true" android:text="20" />
+        <Button android:id="@+id/buy_custom" android:text="Buy 20"/>
+        <Button android:id="@+id/sell_custom" android:text="Sell 20"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/buy_price"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/sell_price" />
+    </TableRow>
+</TableLayout>

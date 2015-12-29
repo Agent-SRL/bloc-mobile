@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.sdf.becquerel.bloc">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:windowSoftInputMode="adjustPan"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustPan">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -19,8 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="Bloc" android:name="SettingsActivity"/>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Bloc" />
+        <activity
+            android:name=".CommViewActivity"
+            android:label="@string/title_activity_comm_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

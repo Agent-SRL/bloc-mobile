@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="org.sdf.becquerel.bloc.CommViewActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView android:id="@+id/comm_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:singleLine="false"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/comm_footer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="start"
+            android:layout_below="@id/comm_text"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/comm_reply_header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="start"
+            android:layout_below="@id/comm_footer"
+            android:layout_marginTop="10dp"
+            android:text="Send a reply:"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/comm_reply"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/comm_reply_header"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEND REPLY"
+            android:id="@+id/reply_button"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/comm_reply"
+            android:layout_marginTop="10dp"
+            android:onClick="onClick"/>
+
+    </RelativeLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

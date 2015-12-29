@@ -7,7 +7,11 @@
     <string name="action_settings">Settings</string>
     <string name="setting_domestic">Enable/disable domestic policies</string>
     <string name="setting_military">Enable/disable military policies</string>
-
+    <string name="setting_gov">Show/hide Government stats</string>
+    <string name="setting_econ">Show/hide Economy stats</string>
+    <string name="setting_for">Show/hide Foreign stats</string>
+    <string name="setting_mil">Show/hide Military stats</string>
+    <string name="setting_leader">Show/hide Leader stats</string>
     <string name="login_button">LOGIN</string>
 
     <!-- BLOC relevant URLs -->
@@ -15,13 +19,40 @@
     <string name="url_nation">http://blocgame.com/main.php</string>
     <string name="url_domestic">http://blocgame.com/domestic.php</string>
     <string name="url_military">http://blocgame.com/military.php</string>
+    <string name="url_commsout">http://blocgame.com/messages.php?to=yes\u0026page=</string>
+    <string name="url_commsin">http://blocgame.com/messages.php?page=</string>
+    <string name="url_player">http://blocgame.com/stats.php?id=</string>
+    <string name="url_market">http://blocgame.com/market.php</string>
+    <string name="url_policies_base">http://blocgame.com/policies/</string>
     <!-- BLOC login form field setup-->
     <string name="login_userfield">username</string>
     <string name="login_passfield">password</string>
     <string name="login_buttonname">login</string>
     <!-- BLOC nation page HTML parsing -->
-    <string name="policy_table_breadcrumb">table.table.table-hover > tbody</string>
+    <string name="gov_breadcrumb">div#collapseOne.accordion-body.collapse.in > div.accordion-inner</string>
     <string name="econ_breadcrumb">div#collapseTwo.accordion-body.collapse.in > div.accordion-inner</string>
+    <string name="for_breadcrumb">div#collapseThree.accordion-body.collapse.in > div.accordion-inner</string>
     <string name="mil_breadcrumb">div#collapseFour.accordion-body.collapse.in > div.accordion-inner</string>
+    <string name="leader_breadcrumb">div#collapseFive.accordion-body.collapse.in > div.accordion-inner</string>
+    <!-- Market page parsing -->
+    <string name="market_buy_oil">Buy Oil</string>
+    <string name="market_sell_oil">Sell Oil</string>
+    <string name="market_buy_rm">Buy Raw Material</string>
+    <string name="market_sell_rm">Sell Raw Material</string>
+    <string name="market_buy_food">Buy Food</string>
+    <string name="market_sell_food">Sell Food</string>
+    <string name="market_buy_mg">Buy Manufactured Goods</string>
+    <string name="market_sell_mg">Sell Manufactured Goods</string>
+    <string name="market_food_name">food</string>
+    <string name="market_mg_name">weapons</string>
+    <string name="market_rm_name">rm</string>
+    <string name="market_oil_name">oil</string>
+    <!--Other HTML parsing-->
+    <string name="comms_breadcrumb">div#content > table.table.table-hover.table-bordered</string>
+    <string name="comm_sent_success">Communique sent!</string>
+    <string name="policy_table_breadcrumb">table.table.table-hover > tbody</string>
+    <string name="market_table_breadcrumb">table.table.table-hover > tbody</string>
 
+
+    <string name="title_activity_comm_view">CommViewActivity</string>
 </resources>

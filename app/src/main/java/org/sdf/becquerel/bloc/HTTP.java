@@ -117,9 +117,9 @@ public class HTTP {
         }
 
         protected void onPostExecute(String response) {
-            android.util.Log.d("dummy", response);
             if (response != null)
             {
+                android.util.Log.d("dummy", response);
                 dataDownloadListener.dataDownloadedSuccessfully(response);
             }
             else
@@ -199,9 +199,9 @@ public class HTTP {
         }
 
         protected void onPostExecute(String response) {
-            android.util.Log.d("dummy", response);
             if (response != null)
             {
+                android.util.Log.d("dummy", response);
                 dataDownloadListener.dataDownloadedSuccessfully(response);
             }
             else

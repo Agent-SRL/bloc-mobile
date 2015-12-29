@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity
         idMap.put(R.id.nav_login, R.layout.login);
         idMap.put(R.id.nav_home, R.layout.nation);
         idMap.put(R.id.nav_military, R.layout.military);
+        idMap.put(R.id.nav_comms, R.layout.comms);
+        idMap.put(R.id.nav_commsout, R.layout.comms);
+        idMap.put(R.id.nav_market, R.layout.market);
     }
 
     @Override
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        Log.d("dummy", "main onCreate()");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -44,16 +48,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        ////Stuff to clear out old preferences if needed
         //android.content.SharedPreferences preferences = android.preference.PreferenceManager.getDefaultSharedPreferences(this);
         //android.content.SharedPreferences.Editor editor = preferences.edit();
         //editor.clear();
         //editor.apply();
         android.preference.PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-
         //Start on login page
         Bundle args = new Bundle();
         args.putInt("ID", R.layout.login);
@@ -61,6 +61,12 @@ public class MainActivity extends AppCompatActivity
         fragment = new BlocFragment();
         fragment.setArguments(args);
         getFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("dummy", "main onStart()");
+
     }
 
     @Override
@@ -98,10 +104,12 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public static void goToView(int fragmentID, FragmentManager mgr) {
+    public static void goToView(int navID, FragmentManager mgr) {
         // pass the page ID to the general-purpose fragment constructor so we get the right page
         Bundle args = new Bundle();
+        int fragmentID = idMap.get(navID);
         args.putInt("ID", fragmentID);
+        args.putInt("navID", navID);
         Fragment fragment = null;
         fragment = new BlocFragment();
         fragment.setArguments(args);
@@ -119,7 +127,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         if (idMap.containsKey(id)) {
             //given the menu ID, get the corresponding fragment
-            goToView(idMap.get(id), getFragmentManager());
+            goToView(id, getFragmentManager());
             setTitle(item.getTitle());
             //menu.setItemChecked(position, true);
             //menu.setSelection(position);
