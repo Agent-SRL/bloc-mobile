@@ -1,22 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--Items to grab from the nation page-->
-    <string-array name="econ_labels">
-        <item>Available Budget:</item>
-        <item>Gross Domestic Product:</item>
-        <item>Growth:</item>
-        <item>Discovered Oil Reserves:</item>
-    </string-array>
-    <string-array name="mil_labels">
-        <item>Army Size:</item>
-        <item>Manpower:</item>
-        <item>Equipment:</item>
-        <item>Training:</item>
-        <item>Navy:</item>
-    </string-array>
-
     <!-- Preferences stuff -->
-        <!-- DOMESTIC -->
+
+        <!--NATION PAGE-->
+        <string-array name="all_leader_labels">
+            <item>Approval:</item>
+        </string-array>
+        <string-array name="default_leader_labels"></string-array>
+        <string-array name="all_leader_labels_readable">
+            <item>Approval</item>
+        </string-array>
+        <string-array name="all_gov_labels">
+            <item>Political System:</item>
+            <item>Stability:</item>
+            <item>Quality of Life:</item>
+            <item>Territory:</item>
+            <item>Rebel Threat:</item>
+        </string-array>
+        <string-array name="default_gov_labels">
+            <item>Territory:</item>
+        </string-array>
+        <string-array name="all_gov_labels_readable">
+            <item>Political System</item>
+            <item>Stability</item>
+            <item>Quality of Life</item>
+            <item>Territory</item>
+            <item>Rebel Threat</item>
+        </string-array>
+
+        <string-array name="all_econ_labels">
+            <item>Population:</item>
+            <item>Economic System:</item>
+            <item>Available Budget:</item>
+            <item>Gross Domestic Product:</item>
+            <item>Growth:</item>
+            <item>Foreign Investment:</item>
+            <item>Manufactured Goods:</item>
+            <item>Discovered Oil Reserves:</item>
+            <item>Oil Supply:</item>
+            <item>Raw Material Supply:</item>
+            <item>Food Supply:</item>
+            <item>Uranium:</item>
+        </string-array>
+        <string-array name="default_econ_labels">
+            <item>Available Budget:</item>
+            <item>Gross Domestic Product:</item>
+            <item>Growth:</item>
+            <item>Uranium:</item>
+        </string-array>
+        <string-array name="all_econ_labels_readable">
+            <item>Population</item>
+            <item>Economic System</item>
+            <item>Cash</item>
+            <item>GDP</item>
+            <item>Growth</item>
+            <item>Foreign Investment</item>
+            <item>MG</item>
+            <item>Oil Reserves</item>
+            <item>Oil</item>
+            <item>RM</item>
+            <item>Food</item>
+            <item>Uranium</item>
+        </string-array>
+        <string-array name="all_for_labels">
+            <item>Official Alignment:</item>
+            <item>Soviet Relations:</item>
+            <item>American Relations:</item>
+            <item>Region:</item>
+            <item>Reputation:</item>
+            <item>Intelligence Agency:</item>
+        </string-array>
+        <string-array name="default_for_labels">
+            <item>Region:</item>
+            <item>Reputation:</item>
+            <item>Intelligence Agency:</item>
+        </string-array>
+        <string-array name="all_for_labels_readable">
+            <item>Alignment</item>
+            <item>Soviet Relations</item>
+            <item>American Relations</item>
+            <item>Region</item>
+            <item>Reputation</item>
+            <item>Intelligence Agency</item>
+        </string-array>
+        <string-array name="all_mil_labels">
+            <item>Army Size:</item>
+            <item>Manpower:</item>
+            <item>Equipment:</item>
+            <item>Training:</item>
+            <item>Airforce:</item>
+            <item>Navy:</item>
+            <item>Chemical Weapons:</item>
+            <item>Wars:</item>
+        </string-array>
+        <string-array name="default_mil_labels">
+            <item>Army Size:</item>
+            <item>Manpower:</item>
+            <item>Equipment:</item>
+            <item>Training:</item>
+            <item>Navy:</item>
+        </string-array>
+        <string-array name="all_mil_labels_readable">
+            <item>Troops</item>
+            <item>Manpower</item>
+            <item>Tech</item>
+            <item>Training</item>
+            <item>Airforce</item>
+            <item>Navy</item>
+            <item>Chemical Weapons</item>
+            <item>Wars</item>
+        </string-array>
+    <!-- DOMESTIC POLICIES -->
             <!-- Short names (shown to user) -->
             <string-array name="all_domestic_policies_readable">
                 <item>Arrest opposition</item>
@@ -86,7 +180,7 @@
             <item type="id" name="domestic_hospital" />
             <item type="id" name="domestic_dictatorship" />
         <!-- END DOMESTIC -->
-        <!-- MILITARY -->
+        <!-- MILITARY POLICIES -->
             <!-- Short names (shown to user) -->
             <string-array name="all_military_policies_readable">
                 <item>Conscription</item>
@@ -172,4 +266,19 @@
             <item  type="id" name="military_makeship" />
             <item  type="id" name="military_makegas" />
         <!-- END MILITARY -->
+        <!-- MARKET -->
+        <integer-array name="market_toggle_ids">
+            <item>@id/market_oil</item>
+            <item>@id/market_food</item>
+            <item>@id/market_mg</item>
+            <item>@id/market_rm</item>
+        </integer-array>
+        <integer-array name="market_button_ids">
+            <item>@id/buy_1</item>
+            <item>@id/sell_1</item>
+            <item>@id/buy_5</item>
+            <item>@id/sell_5</item>
+            <item>@id/buy_custom</item>
+            <item>@id/sell_custom</item>
+        </integer-array>
 </resources>

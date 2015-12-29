@@ -14,6 +14,9 @@
         <item
             android:id="@+id/nav_military"
             android:title="Military" />
+        <item
+            android:id="@+id/nav_market"
+            android:title="Market" />
 
 
 <!--        <item
@@ -25,7 +28,10 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_comms"
-            android:title="Communiques" />
+            android:title="Comms" />
+        <item
+            android:id="@+id/nav_commsout"
+            android:title="Sent Comms" />
     </group>
 
 </menu>
