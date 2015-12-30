@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/nation_container">
 
-    <TableLayout
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:id="@+id/nation_table"
+        android:id="@+id/nation_table_leader"
         android:stretchColumns="*"
-        android:shrinkColumns="*"></TableLayout>
+        android:shrinkColumns="*"
+        android:background="@drawable/backing"
+        android:visibility="gone">
+        <TableRow>
+            <TextView android:layout_span="2" android:text="Leader" android:textColor="@color/colorAccent"/>
+        </TableRow>
+    </TableLayout>
 
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/nation_table_gov"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:background="@drawable/backing"
+        android:layout_below="@+id/nation_table_leader"
+        android:visibility="gone">
+        <TableRow>
+            <TextView android:layout_span="2" android:text="Government" android:textColor="@color/colorAccent"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/nation_table_econ"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:background="@drawable/backing"
+        android:layout_below="@+id/nation_table_gov"
+        android:visibility="gone">
+        <TableRow>
+            <TextView android:layout_span="2" android:text="Economy" android:textColor="@color/colorAccent"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/nation_table_for"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:background="@drawable/backing"
+        android:layout_below="@+id/nation_table_econ"
+        android:visibility="gone">
+        <TableRow>
+            <TextView android:layout_span="2" android:text="Foreign" android:textColor="@color/colorAccent"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/nation_table_mil"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:background="@drawable/backing"
+        android:layout_below="@+id/nation_table_for"
+        android:visibility="gone">
+        <TableRow>
+            <TextView android:layout_span="2" android:text="Military" android:textColor="@color/colorAccent"/>
+        </TableRow>
+    </TableLayout>
 </RelativeLayout>

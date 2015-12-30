@@ -13,7 +13,8 @@
     android:id="@+id/comms_list"
     android:divider="@drawable/divider1d"
     android:dividerPadding="10dp"
-    android:showDividers="middle">
+    android:showDividers="middle"
+    android:background="@drawable/backing">
 
 </org.sdf.becquerel.bloc.AdapterLinearLayout>
 

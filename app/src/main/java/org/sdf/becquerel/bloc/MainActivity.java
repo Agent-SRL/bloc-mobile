@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Map;
@@ -141,6 +142,15 @@ public class MainActivity extends AppCompatActivity
     public void updateBottomBar(String text) {
         TextView bar = (TextView) findViewById(R.id.bottom_bar);
         bar.setText(text);
+        int layoutHeight = bar.getHeight();
+
+        //set layout margin here
+        //RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        //lp.topMargin = layoutHeight;
+        //lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        //lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        //lp.setMargins(layoutHeight, 0, 0, 0);
+        //bar.setLayoutParams(lp);
     }
 
 }

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
     android:stretchColumns="*"
-    android:shrinkColumns="*">
+    android:shrinkColumns="*"
+    android:background="@drawable/backing">
 
     <TableRow>
         <ToggleButton android:id="@+id/market_oil" android:textOn="Oil" android:textOff="Oil" android:disabledAlpha="1.5"/>

@@ -508,12 +508,13 @@ public class BlocFragment extends Fragment implements View.OnClickListener, andr
 
             if (c != null) {
                 TextView tt1 = (TextView) v.findViewById(R.id.comm_label);
+                tt1.setSingleLine();
                 LinearLayout ll1 = (LinearLayout) v.findViewById(R.id.comm_container);
                 //TextView tt2 = (TextView) v.findViewById(R.id.categoryId);
                 //TextView tt3 = (TextView) v.findViewById(R.id.description);
 
                 if (tt1 != null) {
-                    tt1.setText(c.player);
+                    tt1.setText(c.player + ": " + c.text);
                     tt1.setTag(Integer.valueOf(position));
                 }
                 if(ll1 != null) {
@@ -644,7 +645,7 @@ public class BlocFragment extends Fragment implements View.OnClickListener, andr
                         } else {
                             Document doc = parse(data.toString());
                             Map<String, String> stats = parseNation(doc);
-                            buildTable((TableLayout) rootView.findViewById(R.id.nation_table), stats);
+                            buildTable(stats);
                             ((MainActivity) getActivity()).updateBottomBar(parseBottomBar(doc));
                         }
                     }
@@ -658,30 +659,45 @@ public class BlocFragment extends Fragment implements View.OnClickListener, andr
     }
     //get the BLOC main/home page, parse out some selected stats (selected in arrays.xml)
     private Map<String, String> parseNation(Document doc) {
-        Map<String, String> result = new HashMap<String, String>();
+        Map<String, String> result = new java.util.LinkedHashMap<String, String>();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         //Leader
         //Read the enabled policies from preferences, convert from Set<> to List<>
         java.util.Set<String> policies = prefs.getStringSet("leader_labels", new java.util.HashSet<String>());
         List<String> labels = Arrays.asList(policies.toArray(new String[policies.size()]));
         //Grab the values for the selected labels
-        result.putAll(readBlocTable(doc.body().select(getString(R.string.leader_breadcrumb)), labels));
+        if(!labels.isEmpty()) {
+            result.put("Leader", "BREAK");
+            result.putAll(readBlocTable(doc.body().select(getString(R.string.leader_breadcrumb)), labels));
+        }
         //Gubmint
         policies = prefs.getStringSet("gov_labels", new java.util.HashSet<String>());
         labels = Arrays.asList(policies.toArray(new String[policies.size()]));
-        result.putAll(readBlocTable(doc.body().select(getString(R.string.gov_breadcrumb)), labels));
+        if(!labels.isEmpty()) {
+            result.put("Government", "BREAK");
+            result.putAll(readBlocTable(doc.body().select(getString(R.string.gov_breadcrumb)), labels));
+        }
         //Economics
         policies = prefs.getStringSet("econ_labels", new java.util.HashSet<String>());
         labels = Arrays.asList(policies.toArray(new String[policies.size()]));
-        result.putAll(readBlocTable(doc.body().select(getString(R.string.econ_breadcrumb)), labels));
+        if(!labels.isEmpty()) {
+            result.put("Economy", "BREAK");
+            result.putAll(readBlocTable(doc.body().select(getString(R.string.econ_breadcrumb)), labels));
+        }
         //Foreign
         policies = prefs.getStringSet("for_labels", new java.util.HashSet<String>());
         labels = Arrays.asList(policies.toArray(new String[policies.size()]));
-        result.putAll(readBlocTable(doc.body().select(getString(R.string.for_breadcrumb)), labels));
+        if(!labels.isEmpty()) {
+            result.put("Foreign", "BREAK");
+            result.putAll(readBlocTable(doc.body().select(getString(R.string.for_breadcrumb)), labels));
+        }
         //Military
         policies = prefs.getStringSet("mil_labels", new java.util.HashSet<String>());
         labels = Arrays.asList(policies.toArray(new String[policies.size()]));
-        result.putAll(readBlocTable(doc.body().select(getString(R.string.mil_breadcrumb)), labels));
+        if(!labels.isEmpty()) {
+            result.put("Military", "BREAK");
+            result.putAll(readBlocTable(doc.body().select(getString(R.string.mil_breadcrumb)), labels));
+        }
 
         return result;
     }
@@ -700,32 +716,52 @@ public class BlocFragment extends Fragment implements View.OnClickListener, andr
             leftCell = e.child(0);
             if(labels.contains(leftCell.text())) {
                 rightCell = e.children().select("i").first();
-                rightText = rightCell.html();
-                if(rightText.contains("<img")) {
+                rightText = rightCell.text();
+                if(e.child(1).child(0).attr("class").equals("dropdown")) {
+                    //TODO: add a hard-coded parsing method for the poorly formatted dropdown information
                     //then the cell has a dropdown info
-                    rightText = rightCell.text() + " (" + rightCell.parent().nextElementSibling().text() + ")";
+                    //inexplicably the dropdowns are always <ul>'s but sometimes have <li>'s, sometime <font>'s and sometimes just unformatted text. Thanks rummy.
+                    rightText += " (" + e.child(1).child(0).select("ul").html().toString() + ")";
                 }
                 //strip out any <font> tags, etc.
                 rightText = rightText.replaceAll("<.+>([^<]*)</.+>", "$1");
+                rightText = rightText.replace("<br>", "");
                 result.put(leftCell.text(), rightText);
             }
         }
         return result;
     }
     //Builds a two-column table for the home/nation page
-    private void buildTable(TableLayout table, Map<String, String> data) {
+    private void buildTable(Map<String, String> data) {
+        Map<String, Integer> tableIDs = new HashMap<String, Integer>();
+        tableIDs.put("Leader", R.id.nation_table_leader);
+        tableIDs.put("Government", R.id.nation_table_gov);
+        tableIDs.put("Economy", R.id.nation_table_econ);
+        tableIDs.put("Foreign", R.id.nation_table_for);
+        tableIDs.put("Military", R.id.nation_table_mil);
+        int counter = -1;
+        List<TableLayout> tables = new ArrayList<TableLayout>();
         for (Map.Entry<String, String> s : data.entrySet()) {
-            TableRow row = new TableRow(getActivity().getApplicationContext());
-            TextView tl = new TextView(getActivity().getApplicationContext());
-            tl.setText(s.getKey());
-            tl.setTextColor(0xFF000000);
-            TextView tr = new TextView(getActivity().getApplicationContext());
-            tr.setText(s.getValue());
-            tr.setTextColor(0xFF000000);
-            row.addView(tl);
-            row.addView(tr);
-            table.addView(row);
+            if(s.getValue().equals("BREAK")) {
+                counter++;
+                tables.add(counter, (TableLayout) rootView.findViewById(tableIDs.get(s.getKey())));
+                tables.get(counter).setVisibility(View.VISIBLE);
+                Log.d("dummy", "making table: " + s.getKey() + " - " + tableIDs.get(s.getKey()).toString());
+            } else {
+                TableRow row = new TableRow(getActivity().getApplicationContext());
+                TextView tl = new TextView(getActivity().getApplicationContext());
+                tl.setText(s.getKey());
+                tl.setTextColor(0xFF000000);
+                TextView tr = new TextView(getActivity().getApplicationContext());
+                tr.setText(s.getValue());
+                tr.setTextColor(0xFF000000);
+                row.addView(tl);
+                row.addView(tr);
+                tables.get(counter).addView(row);
+                Log.d("dummy", "adding row: " + s.getKey() + " : " + s.getValue());
+            }
         }
+        //getActivity().setContentView(R.layout.activity_main);
     }
 
 /** Policy Fragment code **/

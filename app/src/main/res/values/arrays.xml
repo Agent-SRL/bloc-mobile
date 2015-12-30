@@ -215,7 +215,7 @@
             </string-array>
             <string-array name="default_military_policies">
                 <item>Conscription</item>
-                <item>Train Your Conscripts</item>
+                <item>Train your Conscripts</item>
                 <item>Demobilize</item>
                 <item>Buy M60 Pattons from the United States</item>
                 <item>Manufacture Ship</item>

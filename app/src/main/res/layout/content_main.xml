@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="org.sdf.becquerel.bloc.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:showIn="@layout/app_bar_main"
+    android:id="@+id/main_activity_layout">
 
     <!-- Fragment holder -->
     <ScrollView
@@ -19,7 +20,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/bottom_bar">
 
     </ScrollView>
 
@@ -31,6 +33,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
+        android:background="@drawable/backing"/>
 
 </RelativeLayout>
