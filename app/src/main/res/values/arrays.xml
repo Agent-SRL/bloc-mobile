@@ -189,8 +189,11 @@
                 <item>Attack rebels</item>
                 <item>Gas rebels</item>
                 <item>Buy T-62s</item>
+                <item>Buy T-90s</item>
                 <item>Buy M60s</item>
+                <item>Buy M1s</item>
                 <item>Manufacture Tanks</item>
+                <item>Manufacture Adv. Tanks</item>
                 <item>Buy MiGs</item>
                 <item>Buy F-8s</item>
                 <item>Manufacture Aircraft</item>
@@ -205,8 +208,11 @@
                 <item>Attack the rebel scum!</item>
                 <item>Gas the rebel scum!</item>
                 <item>Buy T-62s from the Soviets</item>
+                <item>Buy T-90 from the Soviet Union</item>
                 <item>Buy M60 Pattons from the United States</item>
+                <item>Buy M1 Abrams from the United States</item>
                 <item>Manufacture Istan Main Battle Tanks</item>
+                <item>Manufacture Despot Main Battle Tank</item>
                 <item>Buy MiGs</item>
                 <item>Buy F-8 Crusaders</item>
                 <item>Manufacture Aircraft</item>
@@ -228,8 +234,11 @@
                 <item>@id/military_attackrebs</item>
                 <item>@id/military_gasrebs</item>
                 <item>@id/military_t62s</item>
+                <item>@id/military_t90s</item>
                 <item>@id/military_m60s</item>
+                <item>@id/military_m1s</item>
                 <item>@id/military_maketank</item>
+                <item>@id/military_makeadvtank</item>
                 <item>@id/military_migs</item>
                 <item>@id/military_f8s</item>
                 <item>@id/military_makeplane</item>
@@ -244,8 +253,11 @@
                 <item>http://blocgame.com/policies/attackrebels.php</item>
                 <item>http://blocgame.com/policies/gasrebels.php</item>
                 <item>http://blocgame.com/policies/t62.php</item>
+                <item>http://blocgame.com/policies/t90.php</item>
                 <item>http://blocgame.com/policies/m60.php</item>
+                <item>http://blocgame.com/policies/m1.php</item>
                 <item>http://blocgame.com/policies/istan.php</item>
+                <item>http://blocgame.com/policies/despot.php</item>
                 <item>http://blocgame.com/policies/migs.php</item>
                 <item>http://blocgame.com/policies/f8.php</item>
                 <item>http://blocgame.com/policies/manufactureaircraft.php</item>
@@ -258,8 +270,11 @@
             <item  type="id" name="military_attackrebs" />
             <item  type="id" name="military_gasrebs" />
             <item  type="id" name="military_t62s" />
+            <item  type="id" name="military_t90s" />
             <item  type="id" name="military_m60s" />
+            <item  type="id" name="military_m1s" />
             <item  type="id" name="military_maketank" />
+            <item  type="id" name="military_makeadvtank" />
             <item  type="id" name="military_migs" />
             <item  type="id" name="military_f8s" />
             <item  type="id" name="military_makeplane" />

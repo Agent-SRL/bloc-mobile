@@ -718,10 +718,8 @@ public class BlocFragment extends Fragment implements View.OnClickListener, andr
                 rightCell = e.children().select("i").first();
                 rightText = rightCell.text();
                 if(e.child(1).child(0).attr("class").equals("dropdown")) {
-                    //TODO: add a hard-coded parsing method for the poorly formatted dropdown information
                     //then the cell has a dropdown info
-                    //inexplicably the dropdowns are always <ul>'s but sometimes have <li>'s, sometime <font>'s and sometimes just unformatted text. Thanks rummy.
-                    rightText += " (" + e.child(1).child(0).select("ul").html().toString() + ")";
+                    rightText += " (" + parseDropdownText(e.child(1).child(0).select("ul").html().toString()) + ")";
                 }
                 //strip out any <font> tags, etc.
                 rightText = rightText.replaceAll("<.+>([^<]*)</.+>", "$1");
@@ -730,6 +728,66 @@ public class BlocFragment extends Fragment implements View.OnClickListener, andr
             }
         }
         return result;
+    }
+    private static String parseDropdownText(String in) {
+        //inexplicably the dropdowns are always <ul>'s but sometimes have <li>'s, sometime <font>'s and sometimes just unformatted text. Thanks rummy.
+        //So instead we parse them with special regexes for each. Will have to update this code whenever Rummy changes the layout.
+        Pattern p;
+        Matcher m;
+        if(in.contains("Land Use")) {
+            Double[] d = new Double[4];
+            java.text.DecimalFormat df = new java.text.DecimalFormat("#.##");
+            p = Pattern.compile("\\(.*?[0-9,]+ km.*?\\)|([0-9,]+) km", Pattern.DOTALL);
+            m = p.matcher(in);
+            int i = 0;
+            while(m.find()) {
+                if(m.group(1) != null) {
+                    System.out.println(m.group(1));
+                    d[i] = Double.valueOf(m.group(1).replace(",", ""));
+                    i++;
+                }
+            }
+            Double total = d[0] + d[1] + d[2] + d[3];
+
+            return String.format("Urban:%s \n Oil:%s \n Mines:%s \n Farms:%s", df.format(((Double) (d[0]/total)).doubleValue() * 100) + "%",
+                    df.format(((Double) (d[1]/total)).doubleValue() * 100) + "%",
+                    df.format(((Double) (d[2]/total)).doubleValue() * 100) + "%",
+                    df.format(((Double) (d[3]/total)).doubleValue() * 100) + "%");
+        }
+        else if(in.contains("every ten minutes")) {
+            p = Pattern.compile("\\$([0-9]+)k");
+            m = p.matcher(in);
+            if(m.find()) {
+                Integer hourly = 6 * Integer.valueOf(m.group(1).replace(",",""));
+                return "+$" + hourly + "k/hr";
+            }
+        }
+        else if(in.contains("Next month") && in.contains("$")) {
+            p = Pattern.compile("([\\+|-]\\$[0-9]+) ");
+            m = p.matcher(in);
+            Integer change = 0;
+            while(m.find()) {
+                change += Integer.valueOf(m.group(1).replace("$", ""));
+            }
+            String sign = "+";
+            if(change < 0)
+                sign = "-";
+            return sign + "$" + ((Integer) Math.abs(change)).toString() + "M/mo";
+        }
+        else if(in.contains("Next month")) {
+            p = Pattern.compile("([\\+|-][0-9]+ )");
+            m = p.matcher(in);
+            Integer change = 0;
+            while(m.find()) {
+                change += Integer.valueOf(m.group(1).trim());
+            }
+            String sign = "+";
+            if(change < 0)
+                sign = "-";
+            return sign + ((Integer) Math.abs(change)).toString() + "/mo";
+        }
+        //else
+        return in;
     }
     //Builds a two-column table for the home/nation page
     private void buildTable(Map<String, String> data) {
@@ -794,19 +852,16 @@ public class BlocFragment extends Fragment implements View.OnClickListener, andr
             TableRow row = new TableRow(getActivity().getApplicationContext());
             TextView tl = new TextView(getActivity().getApplicationContext());
             tl.setText(p.text);
-           // tl.setLayoutParams(columnParams);
             tl.setTextColor(0xFF000000);
             TextView tm = new TextView(getActivity().getApplicationContext());
             tm.setText("(Cost: " + p.cost + ")");
-           // tm.setLayoutParams(columnParams);
             tm.setTextColor(0xFF000000);
             Button b = new Button(getActivity().getApplicationContext());
             b.setId(p.ID);
             b.setText("GO");
             b.setOnClickListener(this);
-           // b.setLayoutParams(columnParams);
-            row.addView(tl);
-            row.addView(tm);
+            row.addView(tl, new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+            row.addView(tm, new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
             row.addView(b);
 
             table.addView(row);

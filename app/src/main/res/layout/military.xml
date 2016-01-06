@@ -11,5 +11,7 @@
         android:layout_centerHorizontal="true"
         android:stretchColumns="*"
         android:shrinkColumns="0,1"
-        android:background="@drawable/backing"></TableLayout>
+        android:background="@drawable/backing">
+
+    </TableLayout>
 </RelativeLayout>
