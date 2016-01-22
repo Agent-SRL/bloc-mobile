@@ -56,11 +56,7 @@ public class MainActivity extends AppCompatActivity
         //editor.apply();
         android.preference.PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         //Start on login page
-        Bundle args = new Bundle();
-        args.putInt("ID", R.layout.login);
-        Fragment fragment = null;
-        fragment = new BlocFragment();
-        fragment.setArguments(args);
+        Fragment fragment = BlocFragment.fragmentChooser(R.layout.login, 0);
         getFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
     }
     @Override
@@ -107,14 +103,8 @@ public class MainActivity extends AppCompatActivity
 
     public static void goToView(int navID, FragmentManager mgr) {
         // pass the page ID to the general-purpose fragment constructor so we get the right page
-        Bundle args = new Bundle();
         int fragmentID = idMap.get(navID);
-        args.putInt("ID", fragmentID);
-        args.putInt("navID", navID);
-        Fragment fragment = null;
-        fragment = new BlocFragment();
-        fragment.setArguments(args);
-
+        Fragment fragment = BlocFragment.fragmentChooser(fragmentID, navID);
         if (fragment != null) {
             mgr.beginTransaction().replace(R.id.frame_container, fragment).commit();
         } else {
