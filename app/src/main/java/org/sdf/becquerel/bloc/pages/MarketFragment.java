@@ -38,9 +38,7 @@ public class MarketFragment extends BlocFragment implements android.text.TextWat
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         TypedArray tmpArr;
         Integer[] newArr;
-        Bundle bundle = getArguments();
-        Integer fragment = bundle.getInt("ID");
-        rootView = inflater.inflate(fragment, container, false);
+        rootView = inflater.inflate(R.layout.market, container, false);
         Button b2 = null;
         tmpArr = getActivity().getResources().obtainTypedArray(R.array.market_button_ids);
         newArr = new Integer[tmpArr.length()];
